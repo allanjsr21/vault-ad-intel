@@ -1,0 +1,591 @@
+{
+  "683691570829429": {
+    "fitScore": 55,
+    "fitTier": "Médio",
+    "angle": "Educação / topo de funil (glossário cripto)",
+    "insight": "Post salvável de glossário cripto puxando seguidor pelo valor (\"salva esse post\"). É topo de funil clássico: educa o iniciante e constrói audiência antes de vender. Pra Imersão serve como isca de autoridade — atrai quem ainda está aprendendo, mas está longe do momento de compra de um produto premium de R$100k+.",
+    "triggers": ["Reciprocidade", "Educação", "Identidade/Tribo"]
+  },
+  "904826848977332": {
+    "fitScore": 72,
+    "fitTier": "Alto",
+    "angle": "Medo da Receita / compliance fiscal (lead magnet grátis)",
+    "insight": "Ataca o medo de declarar cripto errado e pagar caro, oferecendo um guia gratuito como isca de e-mail. Estrutura matadora: alerta de risco -> solução grátis -> urgência (\"enquanto é grátis\"). Pra Imersão, é o melhor molde de captura de lead: troque \"guia de corretoras\" por \"checklist de autocustódia\" e capture o mesmo público que já se preocupa em proteger patrimônio.",
+    "triggers": ["Medo", "Reciprocidade", "Urgência"]
+  },
+  "1437852321044874": {
+    "fitScore": 8,
+    "fitTier": "Baixo",
+    "angle": "Conveniência / produto físico (capa-carteira de celular)",
+    "insight": "Caiu na busca por \"hardware wallet\" mas é uma capa de iPhone com porta-cartões — nada a ver com cripto. Ruído de palavra-chave. Sem fit com a Imersão; serve só pra calibrar o filtro de relevância.",
+    "triggers": ["Conveniência", "Estética"]
+  },
+  "1267895578116127": {
+    "fitScore": 95,
+    "fitTier": "Alto",
+    "angle": "Medo da perda / FUD de corretora (autocustódia como salvação)",
+    "insight": "Copy quase idêntica ao DNA da sua Imersão: \"corretoras hackeadas, FTX, Bybit... a diferença entre perder tudo e não perder nada é uma só: autocustódia\". Usa prova por catástrofe real + a frase-totem \"not your keys, not your coins\" + CTA de compartilhamento viral. Concorrente direto e referência nº1 de ângulo pra modelar.",
+    "triggers": ["Medo", "Prova social", "Inimigo comum", "Identidade/Tribo"]
+  },
+  "1305901458101410": {
+    "fitScore": 70,
+    "fitTier": "Alto",
+    "angle": "Proteção contra inflação / dolarização do patrimônio",
+    "insight": "Vende cripto como defesa contra a corrosão do Real e o risco-Brasil — \"prefiro dormir tranquilo\". Fala direto com o investidor de patrimônio (seu público), só que pelo ângulo macro/dolarização em vez de custódia. Ótimo gancho de abertura pra Imersão: depois de assustar com inflação, a ponte natural é \"e onde você guarda isso com segurança?\".",
+    "triggers": ["Medo", "Aspiração", "Autoridade"]
+  },
+  "1283274553269460": {
+    "fitScore": 58,
+    "fitTier": "Médio",
+    "angle": "Liberdade / sem intermediário (P2P sem retenção)",
+    "insight": "Metáfora do pedágio (\"caminho, não parada\") pra posicionar P2P sem custódia de terceiros. Tema soberania/liberdade conversa com a Imersão, mas o produto é infraestrutura de transação, não educação de custódia. Fit médio; o ângulo de \"liberdade sem intermediário\" é reaproveitável.",
+    "triggers": ["Liberdade", "Metáfora", "Prova social"]
+  },
+  "982588864149531": {
+    "fitScore": 100,
+    "fitTier": "Alto",
+    "angle": "É a SUA oferta (Imersão em Autocustódia — Vault Capital)",
+    "insight": "Este é o seu próprio anúncio. A copy posiciona perfeitamente a dor central: \"proteger a parte do seu patrimônio em cripto que você não quer que nenhum sistema, banco ou governo controle\". Use os outros 29 como banco de ângulos pra criar variações e testar contra esta linha-base.",
+    "triggers": ["Soberania", "Exclusividade", "Medo"]
+  },
+  "830093132994420": {
+    "fitScore": 75,
+    "fitTier": "Alto",
+    "angle": "Medo da Receita / multa (cálculo do terror)",
+    "insight": "Constrói pânico com matemática concreta da multa (R$ 88.500) e cita carteiras privadas (Ledger, Trezor) — sinal de público autocustódia. CTA de WhatsApp pra atendimento 1:1. Pro seu funil: o \"cálculo do terror\" é um device de copy potente; e quem já usa Ledger/Trezor é exatamente seu lead de Imersão.",
+    "triggers": ["Medo", "Urgência", "Autoridade"]
+  },
+  "1644405359997660": {
+    "fitScore": 60,
+    "fitTier": "Médio",
+    "angle": "Dolarização de receita / praticidade (PIX -> USDT)",
+    "insight": "Vende recebimento em dólar sem banco, com liquidação direto na wallet — toca em dolarização e autocustódia (\"guarde em dólar, tudo na mesma wallet\"). Público de freelancer/negócio digital é mais amplo que o seu, mas o ângulo \"tire o banco do meio\" é aderente. Fit médio.",
+    "triggers": ["Conveniência", "Liberdade", "Aspiração"]
+  },
+  "1622336962368121": {
+    "fitScore": 80,
+    "fitTier": "Alto",
+    "angle": "Segurança técnica / paranoia (após roubo real)",
+    "insight": "História pessoal de roubo de celular que não virou prejuízo \"porque eu já aplicava essas camadas\" — prova viva + medo + reciprocidade (comente CELULAR pra receber o material). Fit alto: segurança operacional é coração da autocustódia. O mecanismo \"comente X pro material\" é uma máquina de leads orgânicos pra testar.",
+    "triggers": ["Medo", "Prova social", "Reciprocidade"]
+  },
+  "1499413318245923": {
+    "fitScore": 62,
+    "fitTier": "Médio",
+    "angle": "Autocustódia sem fricção (objeção de complexidade)",
+    "insight": "Ataca a objeção nº1 da autocustódia: \"complicação não é liberdade de verdade\". Mira em quem tem medo de errar na configuração — exatamente a dor que sua Imersão resolve com execução guiada. Copy curta; o ângulo \"autocustódia fácil\" é altamente reaproveitável pra você.",
+    "triggers": ["Quebra de objeção", "Liberdade", "Simplicidade"]
+  },
+  "980330068020410": {
+    "fitScore": 56,
+    "fitTier": "Médio",
+    "angle": "Educação de mercado (P2P / OTC)",
+    "insight": "Explica o ecossistema P2P/OTC de forma didática — topo de funil pra um produto de transação. 5 variações no ar = sinal de que está validado e escalando. Tema adjacente à autocustódia; fit médio, mas o volume de variações mostra disciplina de teste que vale copiar.",
+    "triggers": ["Educação", "Autoridade", "Antecipação"]
+  },
+  "904610199304768": {
+    "fitScore": 73,
+    "fitTier": "Alto",
+    "angle": "Medo da Receita / inconsistência (não é só não declarar, é declarar errado)",
+    "insight": "Vira a chave do medo: o risco não é só omitir, é declarar errado com histórico inconsistente entre corretoras/DeFi. \"A Receita cruza dados\" + diagnóstico de risco antes do prazo. Excelente molde de urgência sazonal (prazo do IR) que você pode rodar pra atrair quem tem patrimônio cripto desorganizado.",
+    "triggers": ["Medo", "Urgência", "Autoridade"]
+  },
+  "2214383542227282": {
+    "fitScore": 88,
+    "fitTier": "Alto",
+    "angle": "Autoridade do produto / cold storage 100% offline (Forbes)",
+    "insight": "Hardware wallet (a ferramenta que sua Imersão ensina a configurar) com prova de autoridade (\"Recommended by Forbes since 2022\") e benefício técnico claro: offline, imune a ataque online. Rodou 653 dias = campeão validadíssimo. Estude o uso de selo de autoridade + benefício técnico simples.",
+    "triggers": ["Autoridade", "Segurança", "Prova social"]
+  },
+  "2229787084149479": {
+    "fitScore": 78,
+    "fitTier": "Alto",
+    "angle": "Catálogo dinâmico (DCO) — cold wallet Tangem",
+    "insight": "Marca de cold wallet de fit altíssimo, mas é um anúncio de catálogo dinâmico (DCO): a copy raspada veio com placeholders ({{product.name}}), então não dá pra analisar o texto — só o formato. Lição: marcas grandes escalam com catálogo automatizado; o produto é 100% aderente ao seu público.",
+    "triggers": ["Autoridade", "Escala", "Prova social"]
+  },
+  "1908903326673600": {
+    "fitScore": 85,
+    "fitTier": "Alto",
+    "angle": "Anti-Estado / soberania (aula teórica + prática, nicho premium)",
+    "insight": "Concorrente de educação quase espelhado: \"Bitcoin para Médicos\" com aula teórica E prática, ângulo de desconfiança no Estado (\"consequência das irresponsabilidades estatais\") e nichado num público de alto poder aquisitivo. É praticamente o seu modelo de negócio aplicado a outro avatar — referência forte de posicionamento e formato.",
+    "triggers": ["Inimigo comum", "Autoridade", "Identidade/Tribo"]
+  },
+  "641215692284396": {
+    "fitScore": 38,
+    "fitTier": "Baixo",
+    "angle": "Anti-golpe / dicas de segurança (mercado ES)",
+    "insight": "Conteúdo de 3 dicas anti-golpe em espanhol (mercado hispânico), tom informativo e viral. Tema de segurança conversa de longe com autocustódia, mas idioma e público fora do seu mercado BR. Fit baixo; útil só como referência de formato \"3 dicas\".",
+    "triggers": ["Educação", "Medo", "Prova social"]
+  },
+  "821498133717672": {
+    "fitScore": 50,
+    "fitTier": "Médio",
+    "angle": "Vitória regulatória / tribo (\"VENCEMOS!\")",
+    "insight": "Surfa numa notícia regulatória (fim da MP 1303, isenção mantida) com tom de comemoração de tribo. Bom uso de newsjacking pra engajar a comunidade cripto, mas é conteúdo de marca, não oferta. Fit médio: o gancho de notícia é replicável quando houver mudança de regra relevante pro seu público.",
+    "triggers": ["Newsjacking", "Identidade/Tribo", "Antecipação"]
+  },
+  "1138933758147928": {
+    "fitScore": 82,
+    "fitTier": "Alto",
+    "angle": "Anti-Estado / sarcasmo (DREX vs autocustódia)",
+    "insight": "Sátira afiada contra o governo (\"o mesmo governo que não tapa um buraco vai cuidar do seu dinheiro digital?\") atacando o DREX. Humor + inimigo comum geram alto compartilhamento e alinham com a tese de soberania da Imersão. Ângulo de tom irônico que diferencia e viraliza — vale testar na sua voz.",
+    "triggers": ["Inimigo comum", "Humor", "Identidade/Tribo"]
+  },
+  "1335244633880102": {
+    "fitScore": 35,
+    "fitTier": "Baixo",
+    "angle": "Aula gratuita / método de investimento (não-cripto)",
+    "insight": "Isca de aula gratuita (\"Pentágono de Ouro\"), mas explicitamente \"não é Bitcoin\" — é um método de investimento tradicional. 6 variações no ar = funil de webinar bem azeitado. Fit baixo no tema, porém o esqueleto aula-grátis -> oferta é um modelo de funil que você pode adaptar pra um avatar cripto.",
+    "triggers": ["Reciprocidade", "Autoridade", "Prova social"]
+  },
+  "817600667793012": {
+    "fitScore": 68,
+    "fitTier": "Alto",
+    "angle": "Medo da Receita / mudança de regra 2026 (planeje-se já)",
+    "insight": "Resume a Reforma Tributária da cripto pra 2026 (fim da isenção de R$35k, alíquota fixa, fiscalização de wallets privadas) e ativa urgência de planejamento. Cita wallets privadas = público de autocustódia. Forte molde de \"divisor de águas + planeje-se antes\" pra captar lead qualificado no fim/início de ano fiscal.",
+    "triggers": ["Medo", "Urgência", "Autoridade"]
+  },
+  "1019129256768717": {
+    "fitScore": 30,
+    "fitTier": "Baixo",
+    "angle": "Iniciante em cripto / corretoras (mercado ES)",
+    "insight": "Lista corretoras pra iniciantes e oferece aula grátis via DM (\"comenta ESTRATEGIA\"), em espanhol. Público iniciante hispânico, oposto do seu avatar premium BR. Fit baixo; o mecanismo de comentário-pra-DM é a única peça reaproveitável.",
+    "triggers": ["Reciprocidade", "Educação", "Prova social"]
+  },
+  "1207825014152996": {
+    "fitScore": 52,
+    "fitTier": "Médio",
+    "angle": "Reserva de valor / Bitcoin vs ouro (newsletter)",
+    "insight": "Análise equilibrada de Bitcoin como reserva de valor vs ouro, captando lead pra newsletter gratuita. Tom maduro e \"sem hype\" atrai investidor sério — perfil do seu público. Fit médio: ângulo de proteção de patrimônio aderente, mas oferta é newsletter de topo de funil.",
+    "triggers": ["Autoridade", "Aspiração", "Reciprocidade"]
+  },
+  "2007665223367575": {
+    "fitScore": 84,
+    "fitTier": "Alto",
+    "angle": "Anti-Estado / soberania (variação da Bitcoin para Médicos)",
+    "insight": "Variação da campanha \"Bitcoin para Médicos\" rodando o mesmo ângulo de desconfiança estatal + aula teórica e prática. O fato de manterem o mesmo gancho em campanhas separadas confirma que o ângulo anti-Estado converte nesse público premium. Referência de posicionamento pra Imersão.",
+    "triggers": ["Inimigo comum", "Autoridade", "Identidade/Tribo"]
+  },
+  "4029381597310442": {
+    "fitScore": 78,
+    "fitTier": "Alto",
+    "angle": "Catálogo dinâmico (DCO) — cold wallet Tangem",
+    "insight": "Outra variação de catálogo dinâmico da Tangem (cold wallet), também com a copy em placeholders. Produto de fit altíssimo com seu público, mas o texto não é analisável por ser template automatizado. Confirma que a Tangem aposta forte em DCO/escala no mercado.",
+    "triggers": ["Autoridade", "Escala", "Prova social"]
+  },
+  "396679325171209": {
+    "fitScore": 80,
+    "fitTier": "Alto",
+    "angle": "Anti-Estado / cripto como resposta ao erro do Estado (autoridade política)",
+    "insight": "Deputado posiciona cripto como reação aos abusos estatais (votou contra o PL 75/2019). Empresta autoridade política à tese de soberania que sustenta a Imersão. Não é oferta, mas é prova social de alto nível — o tipo de aliado/narrativa que reforça seu pitch \"tire o controle do governo\".",
+    "triggers": ["Inimigo comum", "Autoridade", "Identidade/Tribo"]
+  },
+  "702720192677737": {
+    "fitScore": 5,
+    "fitTier": "Baixo",
+    "angle": "App de romance / e-book (ruído total)",
+    "insight": "Capítulo de um romance de lobisomens de um app de leitura — caiu na busca por \"carteira fria\" por menção casual a uma cripto fictícia (WCoin). Zero relação com seu produto. Ruído puro; serve apenas pra mostrar a importância de filtrar relevância na curadoria.",
+    "triggers": ["Narrativa", "Cliffhanger"]
+  },
+  "32645452655103239": {
+    "fitScore": 90,
+    "fitTier": "Alto",
+    "angle": "Cold storage / controle total (\"setup em minutos, protegido pra vida\")",
+    "insight": "Blockstream Jade vende exatamente o resultado da sua Imersão: keys offline, privadas, \"cold storage que funciona de verdade, setup em minutos\". Ataca a objeção de dificuldade com promessa de simplicidade. Copy limpa e benefício-a-benefício — ótimo molde pra descrever o que o aluno sai sabendo fazer.",
+    "triggers": ["Segurança", "Simplicidade", "Quebra de objeção"]
+  },
+  "4548884195341617": {
+    "fitScore": 87,
+    "fitTier": "Alto",
+    "angle": "Upgrade / superação de dor (problemas da sua wallet atual)",
+    "insight": "Abre listando os problemas da \"wallet atual\" pra justificar o upgrade — clássico problema/agitação/solução com prova técnica (firmware open-source verificável, air-gap). Fit alto: mostra como transformar características técnicas em argumentos de segurança que seu público entende.",
+    "triggers": ["Quebra de objeção", "Autoridade", "Segurança"]
+  },
+  "1391420999016812": {
+    "fitScore": 89,
+    "fitTier": "Alto",
+    "angle": "Medo da perda / FUD de corretora (\"quando exchanges quebram\")",
+    "insight": "\"When exchanges fail, your Bitcoin goes with them\" — mesmo gatilho de medo de corretora do Evandro e da sua Imersão, fechando com controle total e backup de 12 palavras. Que a Blockstream rode esse ângulo confirma que \"medo de corretora -> autocustódia\" é o mecanismo mais validado do nicho. Modele isso como sua headline principal.",
+    "triggers": ["Medo", "Inimigo comum", "Segurança"]
+  },
+  "2579549199082151": {
+    "fitScore": 90,
+    "fitTier": "Alto",
+    "angle": "Cold storage / controle total (\"setup em minutos, protegido pra vida\")",
+    "insight": "Blockstream Jade vende exatamente o resultado da sua Imersão: keys offline, privadas, \"cold storage que funciona de verdade, setup em minutos\". Ataca a objeção de dificuldade com promessa de simplicidade. Copy limpa e benefício-a-benefício — ótimo molde pra descrever o que o aluno sai sabendo fazer.",
+    "triggers": ["Segurança", "Simplicidade", "Quebra de objeção"]
+  },
+  "810881215071697": {
+    "fitScore": 87,
+    "fitTier": "Alto",
+    "angle": "Upgrade / superação de dor (problemas da sua wallet atual)",
+    "insight": "Abre listando os problemas da \"wallet atual\" pra justificar o upgrade — clássico problema/agitação/solução com prova técnica (firmware open-source verificável, air-gap). Fit alto: mostra como transformar características técnicas em argumentos de segurança que seu público entende.",
+    "triggers": ["Quebra de objeção", "Autoridade", "Segurança"]
+  },
+  "4010024912572672": {
+    "fitScore": 89,
+    "fitTier": "Alto",
+    "angle": "Medo da perda / FUD de corretora (\"quando exchanges quebram\")",
+    "insight": "\"When exchanges fail, your Bitcoin goes with them\" — mesmo gatilho de medo de corretora do Evandro e da sua Imersão, fechando com controle total e backup de 12 palavras. Que a Blockstream rode esse ângulo em várias variações confirma que \"medo de corretora -> autocustódia\" é o mecanismo mais validado do nicho.",
+    "triggers": ["Medo", "Inimigo comum", "Segurança"]
+  },
+  "1019941166685640": {
+    "fitScore": 52,
+    "fitTier": "Médio",
+    "angle": "Reserva de valor / Bitcoin vs ouro (newsletter)",
+    "insight": "Variação da campanha da RadarFin: análise equilibrada de Bitcoin como reserva de valor vs ouro, captando lead pra newsletter gratuita. Tom maduro e \"sem hype\" atrai investidor sério — perfil do seu público. Fit médio: ângulo de proteção de patrimônio aderente, mas oferta é topo de funil.",
+    "triggers": ["Autoridade", "Aspiração", "Reciprocidade"]
+  },
+  "685059557771459": {
+    "fitScore": 80,
+    "fitTier": "Alto",
+    "angle": "Catálogo dinâmico (DCO) — cold wallet OneKey",
+    "insight": "Marca de hardware wallet (OneKey) de fit altíssimo com seu público, rodando anúncio de catálogo dinâmico (DCO) — a copy raspada veio com placeholders ({{product.name}}), então só dá pra ler o formato, não o texto. Confirma o padrão: marcas de cold wallet escalam com catálogo automatizado.",
+    "triggers": ["Autoridade", "Escala", "Prova social"]
+  },
+  "1722384492072928": {
+    "fitScore": 50,
+    "fitTier": "Médio",
+    "angle": "Automação / renda passiva sem esforço (bot no WhatsApp)",
+    "insight": "Vende a facilidade de automatizar estratégias de rendimento (pools de liquidez) direto do WhatsApp/Telegram. Apela pra preguiça operacional + ganância de rendimento. É quase o oposto da autocustódia (delega), mas revela o apetite do público por 'renda passiva fácil' — gancho que você pode contrapor com 'controle x conveniência'.",
+    "triggers": ["Conveniência", "Ganância", "Novidade"]
+  },
+  "1431376101391372": {
+    "fitScore": 86,
+    "fitTier": "Alto",
+    "angle": "Produto cold wallet + escassez (cupom)",
+    "insight": "Anúncio curtíssimo e direto: cold wallet formato cartão + 10% OFF com cupom. Pro comprador de hardware, vai direto ao benefício e à urgência. Bom molde de copy enxuta de produto.",
+    "triggers": ["Escassez", "Segurança", "Conveniência"]
+  },
+  "1011134778142691": {
+    "fitScore": 58,
+    "fitTier": "Médio",
+    "angle": "Medo regulatório / autoridade jurídica (CVM)",
+    "insight": "Advogado cripto usando medo de sanção/multa da CVM pra captar fundadores e investidores. Autoridade técnica forte. Público mais B2B (projetos) que o seu, mas o gatilho 'interpretar errado custa caro' é reaproveitável no ângulo de compliance.",
+    "triggers": ["Medo", "Autoridade", "Urgência"]
+  },
+  "938691828928286": {
+    "fitScore": 56,
+    "fitTier": "Médio",
+    "angle": "Anti-informação / método (frustração do iniciante)",
+    "insight": "Ataca a sobrecarga de informação ('se informação bastasse, todo mundo seria rico') e promete método/critério. Excelente gancho de dor pra quem se sente perdido. É de trading, não autocustódia, mas a abertura 'sem regra você age por emoção' é uma estrutura de copy potente.",
+    "triggers": ["Frustração", "Autoridade", "Quebra de objeção"]
+  },
+  "1952349122068794": {
+    "fitScore": 90,
+    "fitTier": "Alto",
+    "angle": "Autocustódia acessível (derruba barreira de preço/dificuldade)",
+    "insight": "Tira a desculpa de não fazer autocustódia: Jade Core por US$99, frete grátis, setup simples, open-source. Lista de checkmarks transformando specs em confiança. Molde perfeito de 'comece agora, é fácil e barato' — exatamente a objeção que sua Imersão resolve.",
+    "triggers": ["Simplicidade", "Segurança", "Escassez"]
+  },
+  "846018398540698": {
+    "fitScore": 92,
+    "fitTier": "Alto",
+    "angle": "Soberania / proteção contra confisco (autocustódia avançada)",
+    "insight": "Ângulo potentíssimo e colado no seu público premium: 'como se livrar de uma obrigação de entregar seus saldos de bitcoin'. Fala direto do medo de penhora/confisco para quem tem patrimônio relevante. Creator Alexandre Senra — concorrente direto de conteúdo de autocustódia avançada.",
+    "triggers": ["Medo (confisco)", "Soberania", "Autoridade"]
+  },
+  "2072289433331347": {
+    "fitScore": 85,
+    "fitTier": "Alto",
+    "angle": "Privacidade financeira / PIX sem rastreio (creator @elidiosegundo)",
+    "insight": "Mostra mover dinheiro via carteira cripto recebendo/enviando PIX sem vincular CPF/CNPJ — privacidade e soberania, exatamente o tema 'gastar com privacidade' da sua Imersão. Mecânica 'escreva PIX nos comentários' = máquina de lead orgânico. É o elídio que você citou — creator-chave pra mapear.",
+    "triggers": ["Privacidade", "Reciprocidade", "Soberania"]
+  },
+  "1686264682402395": {
+    "fitScore": 82,
+    "fitTier": "Alto",
+    "angle": "Review de produto + reciprocidade (comente WALLET)",
+    "insight": "Review de hardware wallet com cupom da Tangem e mecânica 'comente WALLET que te mando o vídeo'. Mistura educação de autocustódia + afiliado + lead orgânico. Excelente modelo de captação no Instagram pra modelar.",
+    "triggers": ["Reciprocidade", "Autoridade", "Prova social"]
+  },
+  "1507179334371466": {
+    "fitScore": 55,
+    "fitTier": "Médio",
+    "angle": "Educação de mercado (P2P / OTC)",
+    "insight": "Explica o ecossistema P2P/OTC de forma didática — topo de funil. Tema adjacente à autocustódia (operar sem corretora), fit médio. O volume de variações no ar mostra disciplina de teste que vale copiar.",
+    "triggers": ["Educação", "Autoridade", "Antecipação"]
+  },
+  "1251728190373825": {
+    "fitScore": 55,
+    "fitTier": "Médio",
+    "angle": "Educação de mercado (P2P / OTC)",
+    "insight": "Variação da campanha do ecossistema Alfred (P2P/OTC). Conteúdo educativo de topo de funil sobre operar ativos digitais sem intermediário tradicional. Fit médio; reforça que o anunciante está testando o mesmo ângulo em escala.",
+    "triggers": ["Educação", "Autoridade", "Antecipação"]
+  },
+  "1817663912976020": {
+    "fitScore": 70,
+    "fitTier": "Alto",
+    "angle": "Medo da Receita (IR Cripto 2026)",
+    "insight": "Mesmo ângulo do Blue Consult (é da mesma casa, LP /manoel): a Receita cruza dados e questiona inconsistências no IR cripto 2026. Medo + urgência sazonal pra captar quem tem patrimônio cripto desorganizado. Molde forte de fim/início de ano fiscal.",
+    "triggers": ["Medo", "Urgência", "Autoridade"]
+  },
+  "1012702251287014": {
+    "fitScore": 84,
+    "fitTier": "Alto",
+    "angle": "Seja seu próprio banco (loja BR de cold wallet)",
+    "insight": "Loja nacional de cold wallets com pitch direto de autocustódia: 'seja seu próprio banco', proteja suas cripto de hackers. Concorrente BR de produto, mercado certo. Mostra a tese da Imersão aplicada à venda de hardware.",
+    "triggers": ["Segurança", "Soberania", "Medo"]
+  },
+  "2436072193539174": {
+    "fitScore": 80,
+    "fitTier": "Alto",
+    "angle": "Medo de penhora/bloqueio judicial (proteção patrimonial)",
+    "insight": "Advogado de holding/proteção patrimonial usando decisão real do STJ (cripto é penhorável) + o sistema CriptoJud pra vender blindagem. Mira exatamente no público R$100k+ que teme bloqueio judicial — gancho premium altamente alinhado com a sua oferta.",
+    "triggers": ["Medo", "Autoridade", "Urgência"]
+  },
+  "877041238773108": {
+    "fitScore": 78,
+    "fitTier": "Alto",
+    "angle": "Soberania / anti-banco (controle total do dinheiro)",
+    "insight": "Ângulo de soberania puro: 'você ainda depende de banco, governo ou terceiros?' → Bitcoin como dinheiro 100% sob seu controle. É a tese central da Imersão em formato de educação básica. Boa abertura de funil pra aquecer antes da oferta premium.",
+    "triggers": ["Soberania", "Inimigo comum", "Aspiração"]
+  },
+  "685735897422939": {
+    "fitScore": 87,
+    "fitTier": "Alto",
+    "angle": "Conveniência + segurança (cartão air-gapped)",
+    "insight": "'Tap. Sign. Done.' — cold wallet em formato cartão, air-gapped, NFC, 100% offline + cupom. Vende segurança máxima sem fricção. Excelente exemplo de como tornar autocustódia desejável e prática, não intimidante.",
+    "triggers": ["Conveniência", "Segurança", "Escassez"]
+  },
+  "1038171714965941": {
+    "fitScore": 88,
+    "fitTier": "Alto",
+    "angle": "Quebra de objeção (medo de usar cold wallet)",
+    "insight": "'Afraid of using a cold wallet? X Card was made for real people.' Ataca de frente a objeção nº1 — 'tenho medo de errar' — exatamente a barreira que sua Imersão remove com execução guiada. Headline de quebra de objeção pronta pra modelar.",
+    "triggers": ["Quebra de objeção", "Simplicidade", "Segurança"]
+  },
+  "1871960830870053": {
+    "fitScore": 89,
+    "fitTier": "Alto",
+    "angle": "Medo técnico (ataque a hot wallets) + clear signing",
+    "insight": "Usa uma ameaça concreta ('over 1B downloads compromised', blind signing) pra empurrar a cold wallet com 'clear signing'. Medo técnico bem traduzido em linguagem de benefício. Mostra como transformar uma notícia de ataque em argumento de venda de autocustódia.",
+    "triggers": ["Medo", "Autoridade", "Segurança"]
+  },
+  "825950950230167": {
+    "fitScore": 87,
+    "fitTier": "Alto",
+    "angle": "Risco de assinar às cegas (blind sign = blind risk)",
+    "insight": "'Blind Sign = Blind Risk' — bordão curto e memorável contrapondo hot wallet (assina às cegas) x Titan (clear signing). Aula de copywriting de segurança em poucas palavras. Ótimo pra adaptar como hook de Reel.",
+    "triggers": ["Medo", "Segurança", "Quebra de objeção"]
+  },
+  "1098661962053540": {
+    "fitScore": 86,
+    "fitTier": "Alto",
+    "angle": "Identidade (true crypto holders) + produto",
+    "insight": "'Built for true crypto holders' — apela à identidade do investidor sério que se leva a sério. Cold, air-gapped, tap to sign. Bom uso de pertencimento de tribo pra vender hardware ao público que se vê como 'holder de verdade'.",
+    "triggers": ["Identidade/Tribo", "Segurança", "Escassez"]
+  },
+  "1464846411520634": {
+    "fitScore": 88,
+    "fitTier": "Alto",
+    "angle": "Comparação (hot/software vs cold) + supply chain",
+    "insight": "Comparativo direto: hot wallets assinam às cegas, software wallets são vulneráveis a supply chain — Titan resolve. Estrutura de 'inimigo x solução' clara, educando sobre vetores de ataque que justificam a autocustódia em hardware. Forte pra modelar.",
+    "triggers": ["Medo", "Autoridade", "Quebra de objeção"]
+  },
+  "2492507787796738": {
+    "fitScore": 62,
+    "fitTier": "Médio",
+    "angle": "Educação iniciante (Bitcoin sem complicação)",
+    "insight": "Curso iniciante 'Bitcoin Express' com ângulo de simplicidade ('não precisa entender gráfico') + proteção contra inflação. Público mais iniciante e ticket menor que o seu, mas o gancho 'sem complicação, comece com pouco' é reaproveitável no topo do funil.",
+    "triggers": ["Simplicidade", "Aspiração", "Quebra de objeção"]
+  },
+  "1260412046137050": {
+    "fitScore": 80,
+    "fitTier": "Alto",
+    "angle": "Compliance + autocustódia (desmistifica ilegalidade)",
+    "insight": "Educa que levar cripto pra autocustódia NÃO é evasão/ilegal — quebra uma objeção real e silenciosa do seu público ('vou ter problema com a Receita se tirar da corretora?'). Autoridade fiscal aplicada à autocustódia. Excelente conteúdo de meio de funil pra destravar a compra.",
+    "triggers": ["Quebra de objeção", "Autoridade", "Medo"]
+  },
+  "1563151334687926": {
+    "fitScore": 60,
+    "fitTier": "Médio",
+    "angle": "Catálogo dinâmico (curso bitcoin LATAM)",
+    "insight": "Marca de educação bitcoin (LATAM) rodando anúncio de catálogo dinâmico — copy em placeholder, não analisável. Tema aderente (educação cripto), mas mercado/idioma provavelmente fora do BR. Vale como referência de que players de educação também escalam via catálogo.",
+    "triggers": ["Autoridade", "Escala"]
+  },
+  "888885287642562": {
+    "fitScore": 15,
+    "fitTier": "Baixo",
+    "angle": "Político / menção tangencial a cripto",
+    "insight": "Post político sobre o PL Antifacção que só cita cripto de passagem ('bloqueio de bens, dinheiro, cripto'). NÃO é oferta cripto nem tem fit com seu produto — entrou por uma menção isolada. Ignore pra modelagem; serve só pra mostrar o limite do filtro automático.",
+    "triggers": ["Inimigo comum"]
+  },
+  "825914277096546": {
+    "fitScore": 58,
+    "fitTier": "Médio",
+    "angle": "Educação stablecoin (estabilidade no digital)",
+    "insight": "Contrapõe a volatilidade do Bitcoin à estabilidade das stablecoins, posicionando 'entender esse mundo' como o que separa quem tem medo de quem prospera. Gancho de medo + aspiração. Tema adjacente; útil pra falar de dolarização/estabilidade no funil.",
+    "triggers": ["Medo", "Aspiração", "Educação"]
+  },
+  "314794804171705": {
+    "fitScore": 48,
+    "fitTier": "Baixo",
+    "angle": "Institucional / pró-regulação (autoridade de empresa)",
+    "insight": "Posicionamento institucional defendendo a regulação como segurança pro usuário. É conteúdo de marca/reputação, não oferta — e a Braiscompany carrega histórico polêmico no mercado BR. Baixo fit pra modelagem de copy de venda.",
+    "triggers": ["Autoridade", "Segurança"]
+  },
+  "3942263755834355": {
+    "fitScore": 48,
+    "fitTier": "Baixo",
+    "angle": "Educação iniciante / topo de funil",
+    "insight": "'Já ouviu falar de criptomoedas?' — abertura de topo de funil pra audiência leiga, apresentando Bitcoin como revolução de descentralização. Muito iniciante pro seu público premium, mas o enquadramento 'descentralização' conecta com a tese de soberania.",
+    "triggers": ["Educação", "Curiosidade"]
+  },
+  "1294289005473152": {
+    "fitScore": 42,
+    "fitTier": "Baixo",
+    "angle": "Promessa de enriquecimento (comente INVESTIR)",
+    "insight": "Promessa de 'multiplicar patrimônio do zero' no mercado de cripto com mecânica de comentário pra DM. Apelo de ganância pra iniciante — oposto do perfil R$100k+ da Imersão e com tom de promessa de ganho fácil. Fit baixo; sirva-se só da mecânica de captação.",
+    "triggers": ["Ganância", "Reciprocidade", "Aspiração"]
+  },
+  "807691388570190": {
+    "fitScore": 50,
+    "fitTier": "Médio",
+    "angle": "Lançamento / FOMO de plataforma (beta tester)",
+    "insight": "Teaser de lançamento de plataforma cripto convidando pra ser beta tester — joga com novidade, exclusividade e FOMO. Não é autocustódia, mas a mecânica de 'entre antes de todo mundo' é replicável pra criar antecipação de uma turma da Imersão.",
+    "triggers": ["Novidade", "Exclusividade", "FOMO"]
+  },
+  "1426513195271714": {
+    "fitScore": 78,
+    "fitTier": "Alto",
+    "angle": "Newsjacking macro (Bitcoin se beneficia + bancos compram em silêncio)",
+    "insight": "Surfa numa notícia macro (Powell/FED cortando juros) pra posicionar Bitcoin como beneficiário + o gancho de conspiração suave 'os bancos chamam de arriscado, mas já compram em silêncio'. Combina newsjacking + FOMO + inimigo comum. Forte pra Reels reativos ao noticiário.",
+    "triggers": ["Newsjacking", "FOMO", "Inimigo comum"]
+  },
+  "1926454821504358": {
+    "fitScore": 88,
+    "fitTier": "Alto",
+    "angle": "Evento presencial de autocustódia (concorrente direto)",
+    "insight": "Concorrente quase idêntico à sua oferta: evento PRESENCIAL ensinando a 'comprar e guardar Bitcoin com segurança total' em Fortaleza. É a Imersão em Autocustódia em outra praça. Estude de perto o formato, a copy e o posicionamento — é o seu benchmark mais direto.",
+    "triggers": ["Segurança", "Liberdade", "Autoridade"]
+  },
+  "661213267045602": {
+    "fitScore": 86,
+    "fitTier": "Alto",
+    "angle": "Analogia do cofre (hot vs cold wallet)",
+    "insight": "Analogia didática e perfeita: hot wallet = dinheiro no bolso (prático mas arriscado); cold wallet = cofre (protege o patrimônio). É exatamente o conceito-chave da sua Imersão, embalado num formato de Reel pronto pra modelar. Fecha com pergunta de identidade ('você tá mais pro bolso ou pro cofre?').",
+    "triggers": ["Analogia", "Segurança", "Quebra de objeção"]
+  },
+  "1290782082368172": {
+    "fitScore": 75,
+    "fitTier": "Alto",
+    "angle": "Autoridade política / Bitcoin como reserva soberana",
+    "insight": "Senador apresentando o PL 4501/2024 que propõe uma reserva soberana de Bitcoin pro Brasil. Empresta autoridade institucional à tese de Bitcoin como reserva de valor e soberania — prova social de altíssimo nível pra reforçar o seu pitch (até o Estado considera adotar).",
+    "triggers": ["Autoridade", "Identidade/Tribo", "Aspiração"]
+  },
+  "1481223402958647": {
+    "fitScore": 25,
+    "fitTier": "Baixo",
+    "angle": "Mini-minerador BTC + escassez (oferta duvidosa)",
+    "insight": "Venda de mini-mineradores de BTC com promessa de 'ganhar a cada 10 minutos' e oferta agressiva (compre 3 leve 5). Cripto no tema, mas longe da autocustódia e com cara de esquema de ganho fácil. Baixo fit e baixa credibilidade — evite associar.",
+    "triggers": ["Ganância", "Escassez"]
+  },
+  "818513410635556": {
+    "fitScore": 85,
+    "fitTier": "Alto",
+    "angle": "Pergunta-gancho de qualificação + proteção (hardware wallet)",
+    "insight": "'Own crypto?' abre qualificando o público em 2 palavras e emenda no benefício de proteção vitalícia ('secures your assets for life'). Ryder é uma hardware wallet. Hook curtíssimo e eficiente — molde ideal pra abertura de Reel/anúncio de autocustódia.",
+    "triggers": ["Segurança", "Quebra de objeção"]
+  },
+  "844361628066433": {
+    "fitScore": 40,
+    "fitTier": "Baixo",
+    "angle": "Medo macro / Bitcoin como refúgio (em francês — mercado errado)",
+    "insight": "Ângulo forte de medo macroeconômico (próxima crise pior que 2008) posicionando Bitcoin e ouro como refúgio. PORÉM está em francês — mercado fora do BR. Aproveite só a estrutura 'colapso financeiro iminente → ativos-refúgio (Bitcoin)' como referência de ângulo.",
+    "triggers": ["Medo", "Aspiração", "Autoridade"]
+  },
+  "4675611122665282": {
+    "fitScore": 82,
+    "fitTier": "Alto",
+    "angle": "Bitcoin > ouro como reserva de valor (sem custódia, sem bloqueio)",
+    "insight": "Comparativo Bitcoin x ouro destruindo o ouro nos critérios que importam (inflação, custo de custódia, controle) e fechando com soberania pura: 'você é dono de verdade: sem banco, sem custódia, sem bloqueio'. Une reserva de valor + autocustódia num só argumento — exatamente a ponte que leva seu público da tese à ação.",
+    "triggers": ["Autoridade", "Soberania", "Aspiração"]
+  },
+  "26894416903486395": {
+    "fitScore": 84, "fitTier": "Alto", "angle": "Recomendação pessoal (UGC) de hardware wallet",
+    "insight": "Abre como conversa pessoal: 'muita gente me pede recomendação de hardware wallet — aqui está minha resposta'. Formato UGC/autêntico que vende sem parecer anúncio.",
+    "triggers": ["Autoridade", "Prova social", "Reciprocidade"]
+  },
+  "1650697702864879": {
+    "fitScore": 88, "fitTier": "Alto", "angle": "Reframe: acesso ≠ posse",
+    "insight": "Reframe preciso: 'enquanto tudo funciona, parece seguro deixar em terceiros — o problema é quando você percebe que acesso e posse não são a mesma coisa'. Cria a dor exata que a autocustódia resolve.",
+    "triggers": ["Reframe", "Medo", "Autoridade"]
+  },
+  "546011105239404": {
+    "fitScore": 86, "fitTier": "Alto", "angle": "Soberania + produto (no banks, no middlemen)",
+    "insight": "'No banks. No exchanges. No middlemen — you hold the keys.' Soberania pura ligada ao produto (Titan 2.0). Em inglês, mas o ângulo 'sem intermediário, você tem as chaves' é universal.",
+    "triggers": ["Soberania", "Segurança", "Escassez"]
+  },
+  "1150644126424606": {
+    "fitScore": 88, "fitTier": "Alto", "angle": "Reframe: saldo virtual ≠ ter as chaves",
+    "insight": "'Comprar Bitcoin pelo banco parece prático, mas o que você vê é saldo virtual, não as chaves que provam que o Bitcoin é seu.' Reframe forte contra comprar/deixar em banco/corretora.",
+    "triggers": ["Reframe", "Medo", "Soberania"]
+  },
+  "971604718857358": {
+    "fitScore": 85, "fitTier": "Alto", "angle": "Educação + kit de autocustódia (cold wallet + aço)",
+    "insight": "'Muita gente compra Bitcoin, poucos organizam a segurança.' Vende um kit completo de autocustódia (cold wallet + placa de aço pra seed). Concorrente direto de produto/serviço da Vault.",
+    "triggers": ["Quebra de objeção", "Segurança", "Autoridade"]
+  },
+  "1721372822629029": {
+    "fitScore": 80, "fitTier": "Alto", "angle": "Medo/objeção: 'perdi a senha, sumiu meu dinheiro?'",
+    "insight": "Ataca o pesadelo nº1 de quem olha bitcoin de fora ('perdi a senha, e agora?') — a objeção de perder a chave. Série episódica ('o que não te contam sobre Bitcoin').",
+    "triggers": ["Medo", "Quebra de objeção", "Curiosidade"]
+  },
+  "1653633071922723": {
+    "fitScore": 40, "fitTier": "Baixo", "angle": "Político / DREX (anti-CBDC)",
+    "insight": "Post político sobre contradição do Galípolo no DREX. Toca em autocustódia só por tabela (anti-CBDC). É conteúdo de pauta política, não oferta — baixo fit pra modelagem de copy.",
+    "triggers": ["Inimigo comum", "Newsjacking"]
+  },
+  "606374068923485": {
+    "fitScore": 40, "fitTier": "Baixo", "angle": "Político / DREX (anti-CBDC) — variação",
+    "insight": "Variação do post da Júlia Zanatta sobre o DREX/Galípolo. Mesmo ângulo político anti-CBDC; relevante de longe à soberania, mas não é uma oferta de autocustódia pra modelar.",
+    "triggers": ["Inimigo comum", "Newsjacking"]
+  },
+  "723417873725124": {
+    "fitScore": 55, "fitTier": "Médio", "angle": "Medo fiscal: 'até quem faz autocustódia pode ser taxado'",
+    "insight": "Alerta fiscal (fim da isenção de R$35k) que cita explicitamente que 'até quem faz autocustódia pode ser taxado'. Medo + urgência política. Anunciante anonimizado, tom de pauta.",
+    "triggers": ["Medo", "Urgência", "Inimigo comum"]
+  },
+  "3020416621681281": {
+    "fitScore": 10, "fitTier": "Baixo", "angle": "⚠️ Golpe / phishing (falso suporte Ledger)",
+    "insight": "ALERTA: 'Official Ledger Support — Chat With Us' é o padrão clássico de PHISHING que se passa pela Ledger pra roubar seed. NÃO modele — é exatamente o tipo de golpe contra o qual a autocustódia bem-feita protege. Útil só como exemplo do que ensinar a evitar.",
+    "triggers": ["Golpe", "Falsa autoridade"]
+  },
+  "1953496718793976": {
+    "fitScore": 78, "fitTier": "Alto", "angle": "Caso real (Zambelli): STF bloqueia corretora, não cold wallet",
+    "insight": "Usa um caso real e quente (bloqueio de bens da Carla Zambelli por Moraes, incluindo cripto) pra cravar: 'o STF bloqueia uma corretora, mas não uma cold wallet'. Prova por manchete do poder da autocustódia.",
+    "triggers": ["Medo (confisco)", "Newsjacking", "Soberania"]
+  },
+  "816119131546415": {
+    "fitScore": 60, "fitTier": "Médio", "angle": "Notícia regulatória (C212/Banco Central)",
+    "insight": "Notícia do ambiente de testes C212 do Banco Central (prestadoras terão que reportar). Informa a mudança regulatória que torna a autocustódia mais atraente, mas o hook é didático/seco.",
+    "triggers": ["Autoridade", "Urgência"]
+  },
+  "995954625724135": { "fitScore": 80, "fitTier": "Alto", "angle": "Catálogo dinâmico (DCO) — Trezor", "insight": "Trezor (cold wallet de referência) rodando catálogo dinâmico — copy em placeholder, só dá pra ler o formato. Marca de autocustódia de fit máximo, ativa há 460 dias = campeã absoluta de longevidade.", "triggers": ["Autoridade", "Escala", "Segurança"] },
+  "543512852073918": { "fitScore": 80, "fitTier": "Alto", "angle": "Catálogo dinâmico (DCO) — Trezor", "insight": "Variação de catálogo dinâmico da Trezor (460 dias no ar). Copy automatizada em placeholder; o valor está no fato de a marca escalar autocustódia via DCO de forma persistente.", "triggers": ["Autoridade", "Escala", "Segurança"] },
+  "4130077687271261": { "fitScore": 79, "fitTier": "Médio", "angle": "Catálogo dinâmico (DCO) — Trezor", "insight": "Mais uma variação de catálogo da Trezor (265 dias). Sinaliza estratégia de catálogo sempre-no-ar das marcas de cold wallet.", "triggers": ["Autoridade", "Escala"] },
+  "1677237669588369": { "fitScore": 79, "fitTier": "Médio", "angle": "Catálogo dinâmico (DCO) — Trezor", "insight": "Variação de catálogo Trezor (244 dias). Copy em placeholder; reforça o padrão DCO de longa duração.", "triggers": ["Autoridade", "Escala"] },
+  "1270253207403587": { "fitScore": 77, "fitTier": "Médio", "angle": "Catálogo (imagem) — Trezor", "insight": "Anúncio de catálogo da Trezor em imagem com copy automatizada. Marca de autocustódia de fit altíssimo, texto não analisável.", "triggers": ["Autoridade", "Escala"] },
+  "1826421371527165": { "fitScore": 77, "fitTier": "Médio", "angle": "Catálogo (imagem) — Trezor", "insight": "Variação de catálogo Trezor em imagem (placeholder). Útil como referência de formato, não de copy.", "triggers": ["Autoridade", "Escala"] },
+  "1402844994407516": { "fitScore": 77, "fitTier": "Médio", "angle": "Catálogo (imagem) — Trezor", "insight": "Mais uma de catálogo Trezor em imagem. Confirma a aposta da marca em catálogo sempre-no-ar.", "triggers": ["Autoridade", "Escala"] },
+  "1711512809871908": { "fitScore": 88, "fitTier": "Alto", "angle": "Reframe: acesso ≠ posse (DSEC Labs)", "insight": "'Enquanto tudo funciona, parece seguro deixar em terceiros — o problema é quando você percebe que acesso e posse não são a mesma coisa.' Reframe que cria a dor exata da autocustódia. Concorrente BR de produto/serviço.", "triggers": ["Reframe", "Medo", "Autoridade"] },
+  "1764667581172068": { "fitScore": 88, "fitTier": "Alto", "angle": "Reframe: acesso ≠ posse (DSEC Labs)", "insight": "Variação da campanha da DSEC Labs com o reframe 'acesso ≠ posse'. Rodar várias variações do mesmo ângulo confirma que ele converte.", "triggers": ["Reframe", "Medo", "Autoridade"] },
+  "1733835284299231": { "fitScore": 88, "fitTier": "Alto", "angle": "Reframe: acesso ≠ posse (DSEC Labs)", "insight": "Outra variação do reframe 'acesso ≠ posse' da DSEC Labs. Ângulo central de autocustódia, ótimo pra modelar na voz da Vault.", "triggers": ["Reframe", "Medo", "Autoridade"] },
+  "2609747026065015": { "fitScore": 86, "fitTier": "Alto", "angle": "Liberdade + portabilidade (self-custody no bolso)", "insight": "'Freedom in your hand. Security in every detail. Carry true self-custody wherever you go — slim, offline.' Vende autocustódia como liberdade portátil sem fricção. Em inglês (ELLIPAL global).", "triggers": ["Liberdade", "Segurança", "Conveniência"] },
+  "1881746966023761": { "fitScore": 84, "fitTier": "Alto", "angle": "Produto + escassez (cupom cold wallet)", "insight": "'10% OFF Cold Wallets — Limited Time... tap to sign, manage offline.' Produto + urgência via cupom. Molde clássico de oferta de hardware.", "triggers": ["Escassez", "Conveniência", "Segurança"] },
+  "26530072013297262": { "fitScore": 86, "fitTier": "Alto", "angle": "Conveniência + segurança (cartão air-gapped)", "insight": "'Tap. Sign. Done.' — cold wallet em formato cartão, air-gapped, NFC, 100% offline + cupom. Torna autocustódia desejável e prática.", "triggers": ["Conveniência", "Segurança", "Escassez"] },
+  "1514114579677347": { "fitScore": 88, "fitTier": "Alto", "angle": "Medo de quebra de plataforma → cold storage", "insight": "'Your BTC shouldn't disappear because a platform fails. Cold storage you can hold in your hand.' Medo de corretora/plataforma quebrando → cold storage. Mecanismo nº1 do nicho, formato cartão.", "triggers": ["Medo", "Inimigo comum", "Segurança"] },
+  "957892913579281": { "fitScore": 84, "fitTier": "Alto", "angle": "Backup portátil (recovery phrase)", "insight": "'A Backup You Can Carry — import your recovery phrase, carry a secure backup wallet, fully offline.' Foca na dor de ter tudo em um só device; vende redundância de backup.", "triggers": ["Segurança", "Quebra de objeção"] },
+  "1286629626172493": { "fitScore": 82, "fitTier": "Alto", "angle": "Seja seu próprio banco + responsabilidade", "insight": "'Want to be your own bank? Freedom sounds great — but it comes with responsibility: proteja sua seed, confira cada transação, não há suporte se errar.' Educa o lado da responsabilidade — exatamente o que sua Imersão entrega (execução guiada).", "triggers": ["Soberania", "Quebra de objeção", "Autoridade"] },
+  "866164542859867": { "fitScore": 78, "fitTier": "Alto", "angle": "Catálogo dinâmico (DCO) — Tangem", "insight": "Tangem (cold wallet em cartão) rodando catálogo dinâmico — copy em placeholder. Marca de fit altíssimo; confirma a aposta forte da Tangem em DCO.", "triggers": ["Autoridade", "Escala", "Segurança"] },
+  "2023488401827790": { "fitScore": 78, "fitTier": "Alto", "angle": "Catálogo dinâmico (DCO) — Tangem", "insight": "Variação de catálogo da Tangem. Texto automatizado; valor no padrão de escala da marca.", "triggers": ["Autoridade", "Escala"] },
+  "1552705782507347": { "fitScore": 77, "fitTier": "Médio", "angle": "Catálogo dinâmico (DCO) — Tangem", "insight": "Mais uma variação de catálogo Tangem (placeholder). Referência de formato.", "triggers": ["Autoridade", "Escala"] },
+  "1191255129837279": { "fitScore": 77, "fitTier": "Médio", "angle": "Catálogo dinâmico (DCO) — Tangem", "insight": "Variação de catálogo Tangem. Copy não analisável; reforça DCO sempre-no-ar.", "triggers": ["Autoridade", "Escala"] },
+  "1266854048648788": { "fitScore": 77, "fitTier": "Médio", "angle": "Catálogo dinâmico (DCO) — Tangem", "insight": "Variação de catálogo Tangem em DCO. Marca de autocustódia de fit alto, texto em placeholder.", "triggers": ["Autoridade", "Escala"] },
+  "2067287184052322": { "fitScore": 77, "fitTier": "Médio", "angle": "Catálogo dinâmico (DCO) — Tangem", "insight": "Mais uma de catálogo Tangem. Confirma o volume de variações que as marcas grandes mantêm no ar.", "triggers": ["Autoridade", "Escala"] },
+  "1471595548028425": { "fitScore": 5, "fitTier": "Baixo", "angle": "Falso positivo (poema — 'tangem' é verbo)", "insight": "É um poema ('que nunca tangem o alvo') — a palavra 'tangem' (verbo tanger) casou com a marca Tangem por acaso. Ruído puro, ignore pra modelagem.", "triggers": [] },
+  "887400897270682": { "fitScore": 8, "fitTier": "Baixo", "angle": "⚠️ Golpe (falso 'recovery expert' de cripto)", "insight": "ALERTA: 'Crypto Guardian & Recovery Expert — perdeu acesso? foi hackeado? eu recupero.' É o golpe clássico de recuperação de cripto (fraude). NÃO modele — é exatamente o tipo de vigarice que a autocustódia bem-feita evita.", "triggers": ["Golpe", "Falsa autoridade"] },
+  "2456017078128223": { "fitScore": 5, "fitTier": "Baixo", "angle": "Falso positivo (miniatura do carro Renault Trezor)", "insight": "É um anúncio de miniatura 1/43 do carro-conceito Renault 'Trezor' — casou com a marca de cold wallet por acaso. Ruído, ignore.", "triggers": [] }
+}

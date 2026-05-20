@@ -1,0 +1,24 @@
+# segredos — NUNCA commitar
+.env
+
+node_modules/
+
+# config local do editor / Claude (não vai pro repo)
+.claude/
+an_out.txt
+check.js
+
+# dados brutos e intermediários (regeneráveis com `npm run update`)
+data/ads-raw.json
+data/ads-curated.json
+data/curated-digest.md
+data/organic-ig-raw.json
+data/organic-hashtag-raw.json
+data/organic-curated.json
+data/organic-digest.md
+
+# previews locais (o deploy publica docs/index.html)
+report.html
+hooks.html
+
+*.log

@@ -1,0 +1,20 @@
+{
+  "name": "vault-ad-intel",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Motor de inteligência competitiva — minera a Biblioteca de Anúncios do Facebook via Apify, cura ofertas validadas e gera dashboard premium.",
+  "scripts": {
+    "scrape": "node --env-file=.env scrape.js",
+    "analyze": "node analyze.js",
+    "report": "node build-report.js",
+    "hooks": "node build-hooks.js",
+    "build:site": "node build-report.js --build",
+    "update": "node --env-file=.env scrape.js && node analyze.js && node build-report.js --build",
+    "deploy": "npm run update && git add -A && git commit -m \"update: refresh autocustódia ads\" && git push",
+    "all": "node --env-file=.env scrape.js && node analyze.js && node build-report.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
