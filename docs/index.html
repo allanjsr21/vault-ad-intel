@@ -53,7 +53,7 @@
       <p class="mt-3 text-slate-400 max-w-2xl">
         Mineração da Biblioteca de Anúncios do Facebook (BR) · curadoria dos mais longevos · análise de <span class="text-slate-200 font-medium">fit</span> e ângulo de venda contra a <span class="text-slate-200 font-medium">Imersão em Autocustódia</span>.
       </p>
-      <p class="mt-2 text-xs text-slate-500 font-mono">Gerado em 20 de maio de 2026 às 08:38</p>
+      <p class="mt-2 text-xs text-slate-500 font-mono">Gerado em 20 de maio de 2026 às 10:37</p>
 
       <!-- STATS -->
       <div class="grid grid-cols-2 lg:grid-cols-6 gap-3 mt-7" id="stats"></div>
@@ -61,16 +61,19 @@
 
     <!-- CONTROLS -->
     <div class="glass border border-white/10 rounded-2xl p-3 sm:p-4 mb-7 flex flex-col gap-3 sticky top-3 z-20">
-      <div class="flex flex-col lg:flex-row gap-3 lg:items-center lg:justify-between">
-        <div class="flex flex-wrap gap-2" id="filters"></div>
-        <div class="flex flex-wrap items-center gap-2">
-          <span class="text-xs text-slate-500 mr-1">Ordenar:</span>
-          <div class="flex gap-2" id="sorts"></div>
+      <div class="flex flex-wrap items-center gap-2" id="views"></div>
+      <div id="adcontrols" class="flex flex-col gap-3">
+        <div class="flex flex-col lg:flex-row gap-3 lg:items-center lg:justify-between">
+          <div class="flex flex-wrap gap-2 items-center" id="filters"></div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="text-xs text-slate-500 mr-1">Ordenar:</span>
+            <div class="flex gap-2" id="sorts"></div>
+          </div>
         </div>
-      </div>
-      <div class="flex flex-wrap items-center gap-2 border-t border-white/10 pt-3">
-        <span class="text-xs text-slate-500 mr-1">Idioma:</span>
-        <div class="flex flex-wrap gap-2" id="langs"></div>
+        <div class="flex flex-wrap items-center gap-2 border-t border-white/10 pt-3">
+          <span class="text-xs text-slate-500 mr-1">Idioma:</span>
+          <div class="flex flex-wrap gap-2" id="langs"></div>
+        </div>
       </div>
     </div>
 
@@ -206,12 +209,63 @@
     </article>`;
   }
 
+  // ===== agregação por EMPRESA (anunciante) =====
+  const companies = Object.values(ads.reduce((m, a) => {
+    const k = a.pageName || '—';
+    const c = m[k] || (m[k] = { name: k, pic: a.pageProfilePic, count: 0, active: 0, fitSum: 0, fitN: 0, maxDays: 0, pt: 0, en: 0, video: 0 });
+    c.count++;
+    if (a.isActive) c.active++;
+    if (typeof a.ai.fitScore === 'number') { c.fitSum += a.ai.fitScore; c.fitN++; }
+    c.maxDays = Math.max(c.maxDays, a.daysRunning || 0);
+    if (a.lang === 'pt') c.pt++; else if (a.lang === 'en') c.en++;
+    if (a.video || /VIDEO/.test(a.displayFormat || '')) c.video++;
+    if (!c.pic && a.pageProfilePic) c.pic = a.pageProfilePic;
+    return m;
+  }, {}));
+  companies.forEach(c => { c.avgFit = c.fitN ? Math.round(c.fitSum / c.fitN) : 0; });
+
+  function companyCard(c) {
+    const initials = (c.name || '?').slice(0, 2).toUpperCase();
+    const avatar = c.pic
+      ? `<img src="${esc(c.pic)}" referrerpolicy="no-referrer" class="w-11 h-11 rounded-full object-cover ring-2 ring-white/10" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'w-11 h-11 rounded-full bg-slate-700 grid place-items-center text-xs font-bold text-slate-300',textContent:'${initials}'}))">`
+      : `<div class="w-11 h-11 rounded-full bg-slate-700 grid place-items-center text-xs font-bold text-slate-300">${initials}</div>`;
+    const flags = ((c.pt ? '🇧🇷' : '') + (c.en ? '🇺🇸' : '')) || '🌐';
+    return `<article class="card fade-in glass border border-white/10 rounded-2xl p-5 flex flex-col gap-4 cursor-pointer" data-company="${esc(c.name)}">
+      <div class="flex items-center gap-3">
+        ${avatar}
+        <div class="min-w-0 flex-1">
+          <p class="font-semibold text-white truncate">${esc(c.name)}</p>
+          <p class="text-[11px] text-slate-500">${flags} · ${c.video} em vídeo</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-3 gap-2 text-center">
+        <div><div class="text-2xl font-extrabold text-white">${c.count}</div><div class="text-[10px] text-slate-500 uppercase tracking-wide">anúncios</div></div>
+        <div><div class="text-2xl font-extrabold ${c.active ? 'text-emerald-400' : 'text-slate-500'}">${c.active}</div><div class="text-[10px] text-slate-500 uppercase tracking-wide">ativos</div></div>
+        <div><div class="text-2xl font-extrabold text-cyan-300">${c.avgFit}</div><div class="text-[10px] text-slate-500 uppercase tracking-wide">fit méd</div></div>
+      </div>
+      <div class="flex items-center justify-between text-[11px] text-slate-500">
+        <span>mais longevo: <span class="font-mono text-slate-300">${c.maxDays}d</span></span>
+        <span class="text-emerald-300 font-semibold">Ver anúncios →</span>
+      </div>
+    </article>`;
+  }
+
   // STATE + RENDER
-  let state = { filter: 'all', lang: 'all', sort: 'rank' };
+  let state = { view: 'ads', company: null, filter: 'all', lang: 'all', sort: 'rank' };
   const grid = document.getElementById('grid');
 
   function apply() {
+    document.getElementById('adcontrols').style.display = state.view === 'companies' ? 'none' : 'flex';
+    if (state.view === 'companies') {
+      const list = companies.slice().sort((a, b) => b.count - a.count || b.avgFit - a.avgFit);
+      grid.innerHTML = list.map(companyCard).join('');
+      document.querySelectorAll('#grid [data-company]').forEach(el => el.onclick = () => {
+        state.company = el.dataset.company; state.view = 'ads'; paintControls(); apply(); window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      return;
+    }
     let list = ads.slice();
+    if (state.company) list = list.filter(a => a.pageName === state.company);
     if (state.lang !== 'all') list = list.filter(a => (a.lang||'?') === state.lang);
     if (state.filter === 'active') list = list.filter(a => a.isActive);
     if (state.filter === 'high') list = list.filter(a => (a.ai.fitScore||0) >= 80);
@@ -244,10 +298,19 @@
   function btn(item, active) {
     return `<button data-id="${item.id}" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition ${active ? 'bg-emerald-500 text-black' : 'bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10'}">${item.label}</button>`;
   }
+  function vbtn(view, label, active) {
+    return `<button data-view="${view}" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition ${active ? 'bg-emerald-500 text-black' : 'bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10'}">${label}</button>`;
+  }
   function paintControls() {
+    let v = vbtn('ads', '📋 Por anúncio', state.view === 'ads' && !state.company)
+          + vbtn('companies', '🏢 Por empresa (' + companies.length + ')', state.view === 'companies');
+    if (state.company) v += `<button id="clearcompany" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-400/30">${esc(state.company)} ✕</button>`;
+    document.getElementById('views').innerHTML = v;
     document.getElementById('filters').innerHTML = filters.map(f => btn(f, state.filter===f.id)).join('');
     document.getElementById('sorts').innerHTML = sorts.map(s => btn(s, state.sort===s.id)).join('');
     document.getElementById('langs').innerHTML = langs.map(l => btn(l, state.lang===l.id)).join('');
+    document.querySelectorAll('#views button[data-view]').forEach(b => b.onclick = () => { state.view = b.dataset.view; if (b.dataset.view === 'ads') state.company = null; paintControls(); apply(); });
+    const cc = document.getElementById('clearcompany'); if (cc) cc.onclick = () => { state.company = null; paintControls(); apply(); };
     document.querySelectorAll('#filters button').forEach(b => b.onclick = () => { state.filter = b.dataset.id; paintControls(); apply(); });
     document.querySelectorAll('#sorts button').forEach(b => b.onclick = () => { state.sort = b.dataset.id; paintControls(); apply(); });
     document.querySelectorAll('#langs button').forEach(b => b.onclick = () => { state.lang = b.dataset.id; paintControls(); apply(); });
