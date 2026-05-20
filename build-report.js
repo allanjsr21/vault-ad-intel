@@ -134,7 +134,7 @@ const html = `<!DOCTYPE html>
     </header>
 
     <!-- CONTROLS -->
-    <div class="glass border border-white/10 rounded-2xl p-3 sm:p-4 mb-7 flex flex-col gap-3 sticky top-3 z-20">
+    <div class="glass border border-white/10 rounded-2xl p-3 sm:p-4 mb-7 flex flex-col gap-3">
       <div class="flex flex-wrap items-center gap-2" id="views"></div>
       <div id="adcontrols" class="flex flex-col gap-3">
         <div class="flex flex-col lg:flex-row gap-3 lg:items-center lg:justify-between">
