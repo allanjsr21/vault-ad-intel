@@ -251,8 +251,15 @@ async function main() {
   const isPlaceholderCatalog = (a) =>
     ["DCO", "DPA"].includes(a.displayFormat) && !hasRealCopy(a);
 
+  // Empresas excluidas manualmente pelo usuario (botao no dashboard -> data/excluded.json).
+  let excluded = [];
+  try { excluded = JSON.parse(await readFile("data/excluded.json", "utf8")); } catch {}
+  const exSet = new Set(excluded.map((s) => String(s).trim().toLowerCase()));
+  const isExcludedCompany = (a) => exSet.has((a.pageName || "").trim().toLowerCase());
+
   const scored = unique.map((a) => ({ ...a, ...relevance(a) }));
-  const relevant = scored.filter((a) => a.qualifies && !isPlaceholderCatalog(a));
+  const relevant = scored.filter((a) => a.qualifies && !isPlaceholderCatalog(a) && !isExcludedCompany(a));
+  if (exSet.size) console.log(`🚫 ${exSet.size} empresa(s) excluída(s) manualmente: ${[...exSet].join(", ")}`);
   const dropped = scored.filter((a) => !a.qualifies);
   console.log(`🎯 ${relevant.length} relevantes  |  🗑️  ${dropped.length} descartados por baixa relevancia.`);
   if (dropped.length) {

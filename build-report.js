@@ -304,7 +304,8 @@ const html = `<!DOCTYPE html>
       ? \`<img src="\${esc(c.pic)}" referrerpolicy="no-referrer" class="w-11 h-11 rounded-full object-cover ring-2 ring-white/10" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'w-11 h-11 rounded-full bg-slate-700 grid place-items-center text-xs font-bold text-slate-300',textContent:'\${initials}'}))">\`
       : \`<div class="w-11 h-11 rounded-full bg-slate-700 grid place-items-center text-xs font-bold text-slate-300">\${initials}</div>\`;
     const flags = ((c.pt ? '🇧🇷' : '') + (c.en ? '🇺🇸' : '')) || '🌐';
-    return \`<article class="card fade-in glass border border-white/10 rounded-2xl p-5 flex flex-col gap-4 cursor-pointer" data-company="\${esc(c.name)}">
+    return \`<article class="card fade-in glass border border-white/10 rounded-2xl p-5 flex flex-col gap-4 cursor-pointer relative" data-company="\${esc(c.name)}">
+      <button data-exclude="\${esc(c.name)}" title="Excluir empresa do site" class="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-black/40 text-slate-400 hover:bg-rose-500/80 hover:text-white text-xs grid place-items-center transition z-10">✕</button>
       <div class="flex items-center gap-3">
         \${avatar}
         <div class="min-w-0 flex-1">
@@ -324,21 +325,31 @@ const html = `<!DOCTYPE html>
     </article>\`;
   }
 
+  // ===== exclusão de empresas (localStorage; vira permanente via data/excluded.json) =====
+  const EX_KEY = 'vault_excluded_companies';
+  const exGet = () => { try { return new Set(JSON.parse(localStorage.getItem(EX_KEY) || '[]')); } catch { return new Set(); } };
+  const exSave = (s) => localStorage.setItem(EX_KEY, JSON.stringify([...s]));
+  function excludeCompany(name) {
+    const s = exGet(); s.add(name); exSave(s); paintControls(); apply();
+  }
+
   // STATE + RENDER
   let state = { view: 'ads', company: null, filter: 'all', lang: 'all', sort: 'rank' };
   const grid = document.getElementById('grid');
 
   function apply() {
     document.getElementById('adcontrols').style.display = state.view === 'companies' ? 'none' : 'flex';
+    const ex = exGet();
     if (state.view === 'companies') {
-      const list = companies.slice().sort((a, b) => b.count - a.count || b.avgFit - a.avgFit);
-      grid.innerHTML = list.map(companyCard).join('');
+      const list = companies.filter(c => !ex.has(c.name)).sort((a, b) => b.count - a.count || b.avgFit - a.avgFit);
+      grid.innerHTML = list.map(companyCard).join('') || '<p class="text-slate-500 col-span-full text-center py-20">Nenhuma empresa.</p>';
+      document.querySelectorAll('#grid [data-exclude]').forEach(b => b.onclick = (e) => { e.stopPropagation(); excludeCompany(b.dataset.exclude); });
       document.querySelectorAll('#grid [data-company]').forEach(el => el.onclick = () => {
         state.company = el.dataset.company; state.view = 'ads'; paintControls(); apply(); window.scrollTo({ top: 0, behavior: 'smooth' });
       });
       return;
     }
-    let list = ads.slice();
+    let list = ads.filter(a => !ex.has(a.pageName));
     if (state.company) list = list.filter(a => a.pageName === state.company);
     if (state.lang !== 'all') list = list.filter(a => (a.lang||'?') === state.lang);
     if (state.filter === 'active') list = list.filter(a => a.isActive);
@@ -376,15 +387,28 @@ const html = `<!DOCTYPE html>
     return \`<button data-view="\${view}" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition \${active ? 'bg-emerald-500 text-black' : 'bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10'}">\${label}</button>\`;
   }
   function paintControls() {
+    const exN = exGet().size;
     let v = vbtn('ads', '📋 Por anúncio', state.view === 'ads' && !state.company)
-          + vbtn('companies', '🏢 Por empresa (' + companies.length + ')', state.view === 'companies');
+          + vbtn('companies', '🏢 Por empresa (' + (companies.length - exN) + ')', state.view === 'companies');
     if (state.company) v += \`<button id="clearcompany" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-400/30">\${esc(state.company)} ✕</button>\`;
+    if (exN) v += \`<span class="text-[11px] text-slate-500 ml-1">🚫 \${exN} oculta(s)</span>\`
+      + \`<button id="restoreEx" class="px-2.5 py-1.5 rounded-lg text-[11px] font-semibold bg-white/5 text-slate-300 border border-white/10 hover:bg-white/10">↩ Restaurar</button>\`
+      + \`<button id="permEx" class="px-2.5 py-1.5 rounded-lg text-[11px] font-semibold bg-amber-500/15 text-amber-300 border border-amber-400/20 hover:bg-amber-500/25">Tornar permanente</button>\`;
     document.getElementById('views').innerHTML = v;
     document.getElementById('filters').innerHTML = filters.map(f => btn(f, state.filter===f.id)).join('');
     document.getElementById('sorts').innerHTML = sorts.map(s => btn(s, state.sort===s.id)).join('');
     document.getElementById('langs').innerHTML = langs.map(l => btn(l, state.lang===l.id)).join('');
     document.querySelectorAll('#views button[data-view]').forEach(b => b.onclick = () => { state.view = b.dataset.view; if (b.dataset.view === 'ads') state.company = null; paintControls(); apply(); });
     const cc = document.getElementById('clearcompany'); if (cc) cc.onclick = () => { state.company = null; paintControls(); apply(); };
+    const re = document.getElementById('restoreEx'); if (re) re.onclick = () => { localStorage.removeItem(EX_KEY); paintControls(); apply(); };
+    const pe = document.getElementById('permEx'); if (pe) pe.onclick = () => {
+      const arr = [...exGet()];
+      const json = JSON.stringify(arr, null, 2);
+      (navigator.clipboard ? navigator.clipboard.writeText(json) : Promise.reject()).then(
+        () => alert('Lista de exclusões copiada! ✅\\n\\nPra tornar permanente no site:\\n1. cole em data/excluded.json\\n2. rode: npm run deploy\\n\\nEmpresas:\\n' + arr.join('\\n')),
+        () => prompt('Copie esta lista pra data/excluded.json e rode npm run deploy:', json)
+      );
+    };
     document.querySelectorAll('#filters button').forEach(b => b.onclick = () => { state.filter = b.dataset.id; paintControls(); apply(); });
     document.querySelectorAll('#sorts button').forEach(b => b.onclick = () => { state.sort = b.dataset.id; paintControls(); apply(); });
     document.querySelectorAll('#langs button').forEach(b => b.onclick = () => { state.lang = b.dataset.id; paintControls(); apply(); });
