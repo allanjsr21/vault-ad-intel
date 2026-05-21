@@ -128,8 +128,17 @@ const HARD_NOISE = ["lobisomem", "werewolf", "mafia", "godfather", "chapter",
   "drama", "episode", "academy's", "gospel",
   "renault", "voiture", "concept car", "norev"];
 const SOFT_NOISE = ["romance", "iate", "leitura"];
-// Off-topic: produto físico / religião / P2P / golpe. Só derruba quando o anúncio
-// passou APENAS pela keyword (sem sinal de marca/custódia no texto).
+// EXCLUSÃO DURA: golpe / phishing / off-topic. Derruba SEMPRE, mesmo com termo de cripto
+// na isca (ex.: golpe de "recovery" usa "seed phrase" pra fisgar). Inclui impersonators
+// de marca (falso suporte Ledger) e ruídos como iCloud.
+const HARD_EXCLUDE = [
+  "funds recov", "recovery expert", "crypto guardian", "recuperação de cripto",
+  "recover your crypto", "lost access to your wallet", "wrong seed phrase", "tokens stuck",
+  "ledger news", "ledger support", "official ledger support",
+  "icloud",
+];
+// Off-topic: produto físico / religião / P2P. Só derruba quando o anúncio
+// passou APENAS pela keyword/anunciante (sem sinal de marca/custódia no texto).
 const OFFTOPIC = ["iphone", "phone case", "wallet case", " folio", "voiture", "renault",
   "concept car", "norev", "in christ", "riches in christ", "egrégora", "mammon",
   " p2p", " otc", "funds recovery", "recovery expert", "recuperação de cripto",
@@ -161,20 +170,23 @@ function relevance(a) {
   const softNoise = has(SOFT_NOISE);
   const esHits = has(SPANISH);
   const offtopic = has(OFFTOPIC);
+  const hardExclude = has(HARD_EXCLUDE);
   const pageHint = PAGE_HINT.filter((t) => pageHay.includes(t));
   const textSignal = brandHits.length > 0 || custodyHits.length > 0;
 
   const isSpanish = esHits.length >= 2;
   const isHardNoise = hardNoise.length > 0;
+  const isExcluded = hardExclude.length > 0; // golpe/phishing/off-topic: derruba sempre
   const isSoftNoise = softNoise.length > 0 && !textSignal && pageHint.length === 0;
   // off-topic so derruba se nao tem sinal forte de custodia no texto
   const isOfftopic = !textSignal && offtopic.length > 0;
   // Sinal: marca/custódia no texto OU anunciante/landing claramente de cripto.
   const hasCustody = textSignal || pageHint.length > 0;
 
-  const qualifies = hasCustody && !isSpanish && !isHardNoise && !isSoftNoise && !isOfftopic;
+  const qualifies = hasCustody && !isSpanish && !isHardNoise && !isExcluded && !isSoftNoise && !isOfftopic;
   const reasons = [];
   if (!hasCustody) reasons.push("não é sobre autocustódia");
+  if (isExcluded) reasons.push(`golpe/off-topic: ${hardExclude.join("/")}`);
   if (isSpanish) reasons.push("idioma espanhol (mercado errado)");
   if (isHardNoise) reasons.push(`ruído (drama): ${hardNoise.join("/")}`);
   if (isSoftNoise) reasons.push(`ruído: ${softNoise.join("/")}`);
