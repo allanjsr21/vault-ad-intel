@@ -53,7 +53,7 @@
       <p class="mt-3 text-slate-400 max-w-2xl">
         Mineração da Biblioteca de Anúncios do Facebook (BR) · curadoria dos mais longevos · análise de <span class="text-slate-200 font-medium">fit</span> e ângulo de venda contra a <span class="text-slate-200 font-medium">Imersão em Autocustódia</span>.
       </p>
-      <p class="mt-2 text-xs text-slate-500 font-mono">Gerado em 21 de maio de 2026 às 15:52</p>
+      <p class="mt-2 text-xs text-slate-500 font-mono">Gerado em 23 de maio de 2026 às 08:47</p>
 
       <!-- STATS -->
       <div class="grid grid-cols-2 lg:grid-cols-6 gap-3 mt-7" id="stats"></div>
@@ -230,7 +230,9 @@
       ? `<img src="${esc(c.pic)}" referrerpolicy="no-referrer" class="w-11 h-11 rounded-full object-cover ring-2 ring-white/10" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'w-11 h-11 rounded-full bg-slate-700 grid place-items-center text-xs font-bold text-slate-300',textContent:'${initials}'}))">`
       : `<div class="w-11 h-11 rounded-full bg-slate-700 grid place-items-center text-xs font-bold text-slate-300">${initials}</div>`;
     const flags = ((c.pt ? '🇧🇷' : '') + (c.en ? '🇺🇸' : '')) || '🌐';
-    return `<article class="card fade-in glass border border-white/10 rounded-2xl p-5 flex flex-col gap-4 cursor-pointer relative" data-company="${esc(c.name)}">
+    const isFav = favGet().has(c.name);
+    return `<article class="card fade-in glass border rounded-2xl p-5 flex flex-col gap-4 cursor-pointer relative ${isFav ? 'border-amber-400/50 ring-1 ring-amber-400/40' : 'border-white/10'}" data-company="${esc(c.name)}">
+      <button data-fav="${esc(c.name)}" title="Favoritar empresa" class="absolute top-2.5 right-9 w-6 h-6 rounded-full bg-black/40 ${isFav ? 'text-amber-400' : 'text-slate-500 hover:text-amber-300'} text-sm grid place-items-center transition z-10">★</button>
       <button data-exclude="${esc(c.name)}" title="Excluir empresa do site" class="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-black/40 text-slate-400 hover:bg-rose-500/80 hover:text-white text-xs grid place-items-center transition z-10">✕</button>
       <div class="flex items-center gap-3">
         ${avatar}
@@ -259,16 +261,28 @@
     const s = exGet(); s.add(name); exSave(s); paintControls(); apply();
   }
 
+  // ===== favoritos de empresas (localStorage) =====
+  const FAV_KEY = 'vault_fav_companies';
+  const favGet = () => { try { return new Set(JSON.parse(localStorage.getItem(FAV_KEY) || '[]')); } catch { return new Set(); } };
+  const favSave = (s) => localStorage.setItem(FAV_KEY, JSON.stringify([...s]));
+  function toggleFav(name) {
+    const s = favGet(); s.has(name) ? s.delete(name) : s.add(name); favSave(s); paintControls(); apply();
+  }
+
   // STATE + RENDER
-  let state = { view: 'ads', company: null, filter: 'all', lang: 'all', sort: 'rank' };
+  let state = { view: 'ads', company: null, favOnly: false, filter: 'all', lang: 'all', sort: 'rank' };
   const grid = document.getElementById('grid');
 
   function apply() {
     document.getElementById('adcontrols').style.display = state.view === 'companies' ? 'none' : 'flex';
     const ex = exGet();
+    const fav = favGet();
     if (state.view === 'companies') {
-      const list = companies.filter(c => !ex.has(c.name)).sort((a, b) => b.count - a.count || b.avgFit - a.avgFit);
+      const list = companies.filter(c => !ex.has(c.name))
+        .filter(c => !state.favOnly || fav.has(c.name))
+        .sort((a, b) => (fav.has(b.name) - fav.has(a.name)) || b.count - a.count || b.avgFit - a.avgFit);
       grid.innerHTML = list.map(companyCard).join('') || '<p class="text-slate-500 col-span-full text-center py-20">Nenhuma empresa.</p>';
+      document.querySelectorAll('#grid [data-fav]').forEach(b => b.onclick = (e) => { e.stopPropagation(); toggleFav(b.dataset.fav); });
       document.querySelectorAll('#grid [data-exclude]').forEach(b => b.onclick = (e) => { e.stopPropagation(); excludeCompany(b.dataset.exclude); });
       document.querySelectorAll('#grid [data-company]').forEach(el => el.onclick = () => {
         state.company = el.dataset.company; state.view = 'ads'; paintControls(); apply(); window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -276,6 +290,7 @@
       return;
     }
     let list = ads.filter(a => !ex.has(a.pageName));
+    if (state.favOnly) list = list.filter(a => fav.has(a.pageName));
     if (state.company) list = list.filter(a => a.pageName === state.company);
     if (state.lang !== 'all') list = list.filter(a => (a.lang||'?') === state.lang);
     if (state.filter === 'active') list = list.filter(a => a.isActive);
@@ -314,8 +329,10 @@
   }
   function paintControls() {
     const exN = exGet().size;
+    const favN = favGet().size;
     let v = vbtn('ads', '📋 Por anúncio', state.view === 'ads' && !state.company)
-          + vbtn('companies', '🏢 Por empresa (' + (companies.length - exN) + ')', state.view === 'companies');
+          + vbtn('companies', '🏢 Por empresa (' + (companies.length - exN) + ')', state.view === 'companies')
+          + `<button id="favtoggle" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition ${state.favOnly ? 'bg-amber-400 text-black' : 'bg-white/5 text-amber-300 border border-amber-400/20 hover:bg-amber-500/15'}">⭐ Favoritas (${favN})</button>`;
     if (state.company) v += `<button id="clearcompany" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-400/30">${esc(state.company)} ✕</button>`;
     if (exN) v += `<span class="text-[11px] text-slate-500 ml-1">🚫 ${exN} oculta(s)</span>`
       + `<button id="restoreEx" class="px-2.5 py-1.5 rounded-lg text-[11px] font-semibold bg-white/5 text-slate-300 border border-white/10 hover:bg-white/10">↩ Restaurar</button>`
@@ -325,6 +342,7 @@
     document.getElementById('sorts').innerHTML = sorts.map(s => btn(s, state.sort===s.id)).join('');
     document.getElementById('langs').innerHTML = langs.map(l => btn(l, state.lang===l.id)).join('');
     document.querySelectorAll('#views button[data-view]').forEach(b => b.onclick = () => { state.view = b.dataset.view; if (b.dataset.view === 'ads') state.company = null; paintControls(); apply(); });
+    const ft = document.getElementById('favtoggle'); if (ft) ft.onclick = () => { state.favOnly = !state.favOnly; paintControls(); apply(); };
     const cc = document.getElementById('clearcompany'); if (cc) cc.onclick = () => { state.company = null; paintControls(); apply(); };
     const re = document.getElementById('restoreEx'); if (re) re.onclick = () => { localStorage.removeItem(EX_KEY); paintControls(); apply(); };
     const pe = document.getElementById('permEx'); if (pe) pe.onclick = () => {
