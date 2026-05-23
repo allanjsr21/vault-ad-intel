@@ -305,9 +305,10 @@ const html = `<!DOCTYPE html>
       : \`<div class="w-11 h-11 rounded-full bg-slate-700 grid place-items-center text-xs font-bold text-slate-300">\${initials}</div>\`;
     const flags = ((c.pt ? '🇧🇷' : '') + (c.en ? '🇺🇸' : '')) || '🌐';
     const isFav = favGet().has(c.name);
-    return \`<article class="card fade-in glass border rounded-2xl p-5 flex flex-col gap-4 cursor-pointer relative \${isFav ? 'border-amber-400/50 ring-1 ring-amber-400/40' : 'border-white/10'}" data-company="\${esc(c.name)}">
-      <button data-fav="\${esc(c.name)}" title="Favoritar empresa" class="absolute top-2.5 right-9 w-6 h-6 rounded-full bg-black/40 \${isFav ? 'text-amber-400' : 'text-slate-500 hover:text-amber-300'} text-sm grid place-items-center transition z-10">★</button>
-      <button data-exclude="\${esc(c.name)}" title="Excluir empresa do site" class="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-black/40 text-slate-400 hover:bg-rose-500/80 hover:text-white text-xs grid place-items-center transition z-10">✕</button>
+    // <a href="?company=..."> -> botão direito / ctrl+clique / botão do meio abrem em nova guia.
+    return \`<a href="?company=\${encodeURIComponent(c.name)}" data-company="\${esc(c.name)}" class="card fade-in glass border rounded-2xl p-5 flex flex-col gap-4 cursor-pointer relative no-underline \${isFav ? 'border-amber-400/50 ring-1 ring-amber-400/40' : 'border-white/10'}">
+      <span role="button" data-fav="\${esc(c.name)}" title="Favoritar empresa" class="absolute top-2.5 right-9 w-6 h-6 rounded-full bg-black/40 \${isFav ? 'text-amber-400' : 'text-slate-500 hover:text-amber-300'} text-sm grid place-items-center transition z-10">★</span>
+      <span role="button" data-exclude="\${esc(c.name)}" title="Excluir empresa do site" class="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-black/40 text-slate-400 hover:bg-rose-500/80 hover:text-white text-xs grid place-items-center transition z-10">✕</span>
       <div class="flex items-center gap-3">
         \${avatar}
         <div class="min-w-0 flex-1">
@@ -324,7 +325,7 @@ const html = `<!DOCTYPE html>
         <span>mais longevo: <span class="font-mono text-slate-300">\${c.maxDays}d</span></span>
         <span class="text-emerald-300 font-semibold">Ver anúncios →</span>
       </div>
-    </article>\`;
+    </a>\`;
   }
 
   // ===== exclusão de empresas (localStorage; vira permanente via data/excluded.json) =====
@@ -356,10 +357,14 @@ const html = `<!DOCTYPE html>
         .filter(c => !state.favOnly || fav.has(c.name))
         .sort((a, b) => (fav.has(b.name) - fav.has(a.name)) || b.count - a.count || b.avgFit - a.avgFit);
       grid.innerHTML = list.map(companyCard).join('') || '<p class="text-slate-500 col-span-full text-center py-20">Nenhuma empresa.</p>';
-      document.querySelectorAll('#grid [data-fav]').forEach(b => b.onclick = (e) => { e.stopPropagation(); toggleFav(b.dataset.fav); });
-      document.querySelectorAll('#grid [data-exclude]').forEach(b => b.onclick = (e) => { e.stopPropagation(); excludeCompany(b.dataset.exclude); });
-      document.querySelectorAll('#grid [data-company]').forEach(el => el.onclick = () => {
-        state.company = el.dataset.company; state.view = 'ads'; paintControls(); apply(); window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.querySelectorAll('#grid [data-fav]').forEach(b => b.onclick = (e) => { e.preventDefault(); e.stopPropagation(); toggleFav(b.dataset.fav); });
+      document.querySelectorAll('#grid [data-exclude]').forEach(b => b.onclick = (e) => { e.preventDefault(); e.stopPropagation(); excludeCompany(b.dataset.exclude); });
+      document.querySelectorAll('#grid [data-company]').forEach(el => el.onclick = (e) => {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return; // deixa abrir em nova guia
+        e.preventDefault();
+        state.company = el.dataset.company; state.view = 'ads';
+        history.replaceState(null, '', '?company=' + encodeURIComponent(state.company));
+        paintControls(); apply(); window.scrollTo({ top: 0, behavior: 'smooth' });
       });
       return;
     }
@@ -415,9 +420,9 @@ const html = `<!DOCTYPE html>
     document.getElementById('filters').innerHTML = filters.map(f => btn(f, state.filter===f.id)).join('');
     document.getElementById('sorts').innerHTML = sorts.map(s => btn(s, state.sort===s.id)).join('');
     document.getElementById('langs').innerHTML = langs.map(l => btn(l, state.lang===l.id)).join('');
-    document.querySelectorAll('#views button[data-view]').forEach(b => b.onclick = () => { state.view = b.dataset.view; if (b.dataset.view === 'ads') state.company = null; paintControls(); apply(); });
+    document.querySelectorAll('#views button[data-view]').forEach(b => b.onclick = () => { state.view = b.dataset.view; if (b.dataset.view === 'ads') { state.company = null; history.replaceState(null, '', location.pathname); } paintControls(); apply(); });
     const ft = document.getElementById('favtoggle'); if (ft) ft.onclick = () => { state.favOnly = !state.favOnly; paintControls(); apply(); };
-    const cc = document.getElementById('clearcompany'); if (cc) cc.onclick = () => { state.company = null; paintControls(); apply(); };
+    const cc = document.getElementById('clearcompany'); if (cc) cc.onclick = () => { state.company = null; history.replaceState(null, '', location.pathname); paintControls(); apply(); };
     const re = document.getElementById('restoreEx'); if (re) re.onclick = () => { localStorage.removeItem(EX_KEY); paintControls(); apply(); };
     const pe = document.getElementById('permEx'); if (pe) pe.onclick = () => {
       const arr = [...exGet()];
@@ -431,6 +436,10 @@ const html = `<!DOCTYPE html>
     document.querySelectorAll('#sorts button').forEach(b => b.onclick = () => { state.sort = b.dataset.id; paintControls(); apply(); });
     document.querySelectorAll('#langs button').forEach(b => b.onclick = () => { state.lang = b.dataset.id; paintControls(); apply(); });
   }
+
+  // abre já filtrado se a URL tiver ?company= (ex.: aberto em nova guia pelo botão direito)
+  const urlCompany = new URLSearchParams(location.search).get('company');
+  if (urlCompany && ads.some(a => a.pageName === urlCompany)) { state.company = urlCompany; state.view = 'ads'; }
 
   paintControls();
   apply();
