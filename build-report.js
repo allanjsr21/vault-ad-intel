@@ -189,7 +189,15 @@ const html = `<!DOCTYPE html>
     const fmtBadge = \`<span class="absolute top-2 left-2 text-[10px] font-bold uppercase tracking-wide bg-black/70 text-white px-2 py-1 rounded-md backdrop-blur">\${esc(a.displayFormat)}\${a.isCarousel ? ' · carrossel' : ''}</span>\`;
     const kwBadge = a.keyword ? \`<span class="absolute top-2 right-2 text-[10px] font-medium bg-cyan-500/20 text-cyan-300 border border-cyan-400/20 px-2 py-1 rounded-md backdrop-blur">\${esc(a.keyword)}</span>\` : '';
     let inner;
-    if (a.video) {
+    // Midia expirada no CDN do FB (anunciante tirou do ar): evita player preto.
+    if (a.mediaDead) {
+      inner = \`<a href="\${esc(a.adLibraryUrl)}" target="_blank" rel="noopener"
+        class="absolute inset-0 flex flex-col items-center justify-center gap-2 text-center px-4 no-underline hover:bg-white/[.03] transition">
+        <span class="text-3xl opacity-40">📦</span>
+        <span class="text-xs font-semibold text-slate-400">Criativo fora do ar</span>
+        <span class="text-[11px] text-slate-600">o anunciante pausou · ver na biblioteca do FB ↗</span>
+      </a>\`;
+    } else if (a.video) {
       inner = \`<video class="w-full h-full object-cover" controls preload="none" playsinline \${a.videoPreview ? \`poster="\${esc(a.videoPreview)}"\` : ''} referrerpolicy="no-referrer">
         <source src="\${esc(a.video)}" type="video/mp4"></video>\`;
     } else if (a.image || a.videoPreview) {
